@@ -73,7 +73,7 @@ pipeline{
 		    steps{
 		        bat 'gcloud auth login'
 		        bat 'gcloud container clusters get-credentials kubernetes-demo --zone us-central1-c --project helical-loop-360206'
-		        bat 'kubectl apply -f '
+		        bat 'kubectl apply -f deployment.yaml'
 		    }
 		    
 		}
