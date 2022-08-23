@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: i-ankitkawtia-main
-          image: i-ankitkawtia-main
+          image: i-ankitkawtia-main:latest
           #envFrom:
            # - secretRef:
             #    name: secretInfo
