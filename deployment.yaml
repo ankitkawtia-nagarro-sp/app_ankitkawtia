@@ -23,3 +23,18 @@ spec:
     matchLabels:
       type: back-end
       app: devopsapp
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: devopsapp-lb-service
+spec:
+ type: LoadBalancer
+ ports:
+ - targetPort: 80
+   port: 80
+   nodePort: 30081
+ selector:
+  app: devopsapp
+  type: back-end
