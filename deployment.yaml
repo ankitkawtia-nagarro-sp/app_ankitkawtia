@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopsapp-deployment
+  labels:
+    app: devopsapp
+spec:
+  template:
+    metadata:
+      name: devopsapp-pod
+      labels:
+        app: devopsapp
+        type: back-end
+    spec:
+      containers:
+        - name: ankitkawtia/i-ankitkawtia-main
+          image: ankitkawtia/i-ankitkawtia-main
+          #envFrom:
+           # - secretRef:
+            #    name: secretInfo
+  replicas: 4
+  selector:
+    matchLabels:
+      type: back-end
+      app: devopsapp
