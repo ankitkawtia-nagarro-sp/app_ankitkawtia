@@ -10,7 +10,6 @@ spec:
       name: devopsapp-pod
       labels:
         app: devopsapp
-        type: back-end
     spec:
       containers:
         - name: i-ankitkawtia-main
@@ -21,7 +20,6 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      type: back-end
       app: devopsapp
 
 ---
@@ -29,6 +27,8 @@ apiVersion: v1
 kind: Service
 metadata:
  name: devopsapp-lb-service
+ labels:
+   app: devopsapp-lb
 spec:
  type: LoadBalancer
  ports:
@@ -37,4 +37,3 @@ spec:
    nodePort: 30081
  selector:
   app: devopsapp
-  type: back-end
