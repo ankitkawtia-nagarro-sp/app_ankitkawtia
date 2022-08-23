@@ -13,8 +13,8 @@ spec:
         type: back-end
     spec:
       containers:
-        - name: ankitkawtia/i-ankitkawtia-main
-          image: ankitkawtia/i-ankitkawtia-main
+        - name: i-ankitkawtia-main
+          image: i-ankitkawtia-main
           #envFrom:
            # - secretRef:
             #    name: secretInfo
