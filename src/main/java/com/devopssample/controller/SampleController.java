@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class SampleController {
 
 	@RequestMapping("/")
-    String hello() {
-        return "Hello World! Spring Boot!!";
+    	String hello() {
+        	return "Hello World! I am from Develop branch";
     }
 
 }
