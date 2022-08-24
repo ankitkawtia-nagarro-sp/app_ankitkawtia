@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devopsapp-deployment
+  name: devopsapp-deployment-master
   namespace: kubernetes-cluster-ankitkawtia
   labels:
-    app: devopsapp
+    app: devopsappmaster
 spec:
   template:
     metadata:
-      name: devopsapp-pod
+      name: devopsapp-master
       labels:
-        app: devopsapp
+        app: devopsappmaster
     spec:
       containers:
-        - name: i-ankitkawtia-main
-          image: ankitkawtia/i-ankitkawtia-main:latest
+        - name: i-ankitkawtia-master
+          image: ankitkawtia/i-ankitkawtia-master:latest
           envFrom:
           - configMapRef:
               name: app-config
@@ -23,21 +23,21 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      app: devopsapp
+      app: devopsappmaster
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: devopsapp-lb-service
+ name: devopsapp-lb-service-master
  namespace: kubernetes-cluster-ankitkawtia
  labels:
-   app: devopsapp-lb
+   app: devopsapp-lb-master
 spec:
  type: LoadBalancer
  ports:
- - targetPort: 80
+ - targetPort: 8083
    port: 80
    nodePort: 30081
  selector:
-  app: devopsapp
+  app: devopsappmaster
