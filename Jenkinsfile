@@ -31,7 +31,7 @@ pipeline{
 		stage('Sonarqube Analysis') {
             		steps{
                 		withSonarQubeEnv('Test_Sonar') {
-                    			bat 'mvn sonar:sonar -Dsonar.projectKey=sonar-ankitkawtia'
+                    			bat 'mvn sonar:sonar -Dsonar.projectKey=sonar-ankitkawtia -Dsonar.projectName=sonar-ankitkawtia'
                 		}
             		}
         	}
