@@ -65,7 +65,7 @@ pipeline{
 		}
 		stage('Docker Run Container'){
 			steps{
-				bat 'docker run -d --name devops-java-app -p 4042:8081 ankitkawtia/i-ankitkawtia-master:latest'
+				bat 'docker run -d --name devops-java-app -p 4042:8083 ankitkawtia/i-ankitkawtia-master:latest'
 			}
 		}*/
 		
