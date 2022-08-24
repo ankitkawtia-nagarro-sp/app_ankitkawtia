@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devopsapp-deployment
+  namespace: kubernetes-cluster-ankitkawtia
   labels:
     app: devopsapp
 spec:
@@ -29,6 +30,7 @@ apiVersion: v1
 kind: Service
 metadata:
  name: devopsapp-lb-service
+ namespace: kubernetes-cluster-ankitkawtia
  labels:
    app: devopsapp-lb
 spec:
