@@ -14,9 +14,11 @@ spec:
       containers:
         - name: i-ankitkawtia-main
           image: ankitkawtia/i-ankitkawtia-main:latest
-          #envFrom:
-           # - secretRef:
-            #    name: secretInfo
+          envFrom:
+          - configMapRef:
+              name: app-config
+          - secretRef:
+              name: app-secrets
   replicas: 4
   selector:
     matchLabels:
