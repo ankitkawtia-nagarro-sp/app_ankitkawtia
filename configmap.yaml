@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: kubernetes-cluster-ankitkawtia
+  labels:
+    app: app-config
+data:
+    app.url: "http://google.com"
+    app.env: "dev"
+    app.language: English
