@@ -13,7 +13,7 @@ spec:
         app: devopsappdevelop
     spec:
       containers:
-        - name: i-ankitkawtia-main
+        - name: i-ankitkawtia-develop
           image: ankitkawtia/i-ankitkawtia-develop:latest
           envFrom:
           - configMapRef:
