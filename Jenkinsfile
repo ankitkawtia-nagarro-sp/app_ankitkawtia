@@ -42,7 +42,7 @@ pipeline{
 			}
 		}
 		
-		stage('Docker push to DockerHub'){
+		/*stage('Docker push to DockerHub'){
 			steps{
 				script{
 					withDockerRegistry(credentialsId: 'dockerhubcredentials', toolName:'docker'){
@@ -50,7 +50,7 @@ pipeline{
 					}
 				}
 			}
-		}
+		}*/
 		
 		/*stage('Docker delete previous container'){
 			steps{
