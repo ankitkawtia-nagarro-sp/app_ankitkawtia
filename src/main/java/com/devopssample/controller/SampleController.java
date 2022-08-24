@@ -8,7 +8,7 @@ public class SampleController {
 
 	@RequestMapping("/")
     String hello() {
-        return "Hello World! Spring Boot!!";
+        return "Hello World! I am from Master branch";
     }
 
 }
