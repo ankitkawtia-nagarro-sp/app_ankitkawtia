@@ -24,7 +24,7 @@ class DevopsSampleApplicationTests {
 	@Test
     public void hello_ok() throws Exception {
         ResponseEntity<String> response = template.getForEntity("/", String.class);
-        assertThat(response.getBody()).isEqualTo("Hello World! Spring Boot!!");
+        assertThat(response.getBody()).isEqualTo("Hello World! I am from Develop branch");
     }
 	
 	public int add(int a, int b) {
