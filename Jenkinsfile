@@ -30,8 +30,8 @@ pipeline{
 		}*/
 		stage('Sonarqube Analysis') {
             		steps{
-                		withSonarQubeEnv('Test_Sonar') { // You can override the credential to be used
-                    			bat 'mvn sonar:sonar'
+                		withSonarQubeEnv('Test_Sonar') {
+                    			bat 'mvn sonar:sonar -Dsonar.projectKey=sonar-ankitkawtia'
                 		}
             		}
         	}
