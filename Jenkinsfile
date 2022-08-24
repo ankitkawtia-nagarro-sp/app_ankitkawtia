@@ -1,9 +1,9 @@
 pipeline{
 	agent any
 	
-	environment {
-		//dockerhubcredentials = 'dockerhubcredentials'
-	}
+	/*environment {
+		dockerhubcredentials = 'dockerhubcredentials'
+	}*/
 	
 	tools {
 		git 'Default'
