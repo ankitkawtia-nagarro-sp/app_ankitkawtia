@@ -2,7 +2,7 @@ pipeline{
 	agent any
 	
 	environment {
-		dockerhubcredentials = 'dockerhubcredentials'
+		//dockerhubcredentials = 'dockerhubcredentials'
 	}
 	
 	tools {
