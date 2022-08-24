@@ -26,8 +26,8 @@ kubectl apply -f secrets.yaml
 # Deploy the docker image and create load balancer service on Kubernetes cluster
 kubectl apply -f deployment.yaml
 
-# See the deployment details
-kubectl describe deployment devopsapp-deployment
+# See the deployment details in custom namespace
+kubectl describe deployment devopsapp-deployment-master -n kubernetes-cluster-ankitkawtia
 
-# See all the workload details
-kubectl get all
+# See all the workload details in custom namespace
+kubectl get all -n kubernetes-cluster-ankitkawtia
