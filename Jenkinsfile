@@ -23,22 +23,22 @@ pipeline{
 				bat 'mvn clean install'
 			}
 		}
-		stage('Test case execution'){
+		/*stage('Test case execution'){
 			steps {
 				bat 'mvn test'
 			}
-		}
+		}*/
 		stage('Sonarqube Analysis') {
-            steps{
-                withSonarQubeEnv('Test_Sonar') { // You can override the credential to be used
-                    bat 'mvn sonar:sonar'
-                }
-            }
-        }
+            		steps{
+                		withSonarQubeEnv('Test_Sonar') { // You can override the credential to be used
+                    			bat 'mvn sonar:sonar'
+                		}
+            		}
+        	}
         
-        stage('Docker Build'){
+        	stage('Docker Build'){
 			steps{
-				bat 'docker build -t ankitkawtia/i-ankitkawtia-main:latest . '
+				bat 'docker build -t ankitkawtia/i-ankitkawtia-develop:latest . '
 			}
 		}
 		
@@ -46,13 +46,13 @@ pipeline{
 			steps{
 				script{
 					withDockerRegistry(credentialsId: 'dockerhubcredentials', toolName:'docker'){
-						bat 'docker push ankitkawtia/i-ankitkawtia-main:latest'
+						bat 'docker push ankitkawtia/i-ankitkawtia-develop:latest'
 					}
 				}
 			}
 		}
 		
-		stage('Docker delete previous container'){
+		/*stage('Docker delete previous container'){
 			steps{
 				script{
 					try{
@@ -62,21 +62,19 @@ pipeline{
 					}
 				}
 			}
-		}
+		}*/
 		stage('Docker Run Container'){
 			steps{
-				bat 'docker run -d --name devops-java-app -p 4042:8081 ankitkawtia/i-ankitkawtia-main:latest'
+				bat 'docker run -d --name devops-app-develop -p 4042:8081 ankitkawtia/i-ankitkawtia-develop:latest'
 			}
 		}
 		
 		stage('Kubernetes Deployment'){
 		    steps{
-		        bat 'gcloud auth login'
-		        bat 'gcloud container clusters get-credentials kubernetes-demo --zone us-central1-c --project helical-loop-360206'
+		        //bat 'gcloud auth login'
+		        //bat 'gcloud container clusters get-credentials kubernetes-demo --zone us-central1-c --project helical-loop-360206'
 		        bat 'kubectl apply -f deployment.yaml'
 		    }
-		    
 		}
-		
 	}
 }
